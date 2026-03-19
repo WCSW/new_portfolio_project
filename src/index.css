@@ -1,13 +1,205 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 160 8% 8%;
+    --foreground: 0 0% 100%;
+
+    --card: 160 6% 11%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 160 6% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 145 63% 49%;
+    --primary-foreground: 160 8% 8%;
+
+    --secondary: 160 5% 16%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 160 5% 16%;
+    --muted-foreground: 160 5% 55%;
+
+    --accent: 145 63% 49%;
+    --accent-foreground: 160 8% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 5% 18%;
+    --input: 160 5% 18%;
+    --ring: 145 63% 49%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 160 6% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 145 63% 49%;
+    --sidebar-primary-foreground: 160 8% 8%;
+    --sidebar-accent: 160 5% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 160 5% 18%;
+    --sidebar-ring: 145 63% 49%;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-tag {
+    @apply text-xs uppercase tracking-[3px] text-muted-foreground font-mono flex items-center gap-2;
+  }
+
+  .section-tag::before {
+    content: '';
+    @apply w-2 h-2 rounded-full bg-primary inline-block;
+  }
+
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-border/50 rounded-xl;
+  }
+
+  .counter-card {
+    @apply glass-card p-6 relative overflow-hidden;
+  }
+
+  .counter-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent;
+  }
+
+  .education-item {
+    @apply flex items-center justify-between py-5 border-b border-border/50 relative;
+    transition: all 0.3s ease;
+  }
+
+  .education-item:hover {
+    @apply pl-4;
+  }
+
+  .education-item::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary opacity-0;
+    transition: opacity 0.3s ease;
+  }
+
+  .education-item:hover::before {
+    @apply opacity-100;
+  }
+
+  .service-item {
+    @apply flex items-center justify-between py-6 border-b border-border/50 relative cursor-pointer;
+    transition: all 0.3s ease;
+  }
+
+  .service-item:hover {
+    @apply border-primary/30;
+  }
+
+  .portfolio-card {
+    @apply relative overflow-hidden rounded-xl;
+  }
+
+  .portfolio-card .portfolio-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100;
+    transition: opacity 0.4s ease;
+  }
+
+  .testimonial-card {
+    @apply glass-card p-8 relative overflow-hidden;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent;
+  }
+
+  .pricing-card {
+    @apply glass-card p-8 relative overflow-hidden;
+  }
+
+  .pricing-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-full;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    @apply shadow-[0_0_30px_hsl(var(--primary)/0.3)] scale-105;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-border text-foreground font-semibold rounded-full;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    @apply border-primary text-primary;
+  }
+
+  .budget-tag {
+    @apply px-4 py-2 rounded-full border border-border/50 text-sm text-foreground cursor-pointer;
+    transition: all 0.3s ease;
+  }
+
+  .budget-tag:hover, .budget-tag.active {
+    @apply border-primary text-primary bg-primary/10;
+  }
+
+  .form-input {
+    @apply w-full bg-transparent border-b border-border/50 py-3 text-foreground placeholder:text-muted-foreground outline-none;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input:focus {
+    @apply border-primary;
+  }
+
+  .partner-logo {
+    @apply opacity-40 grayscale;
+    transition: all 0.3s ease;
+  }
+
+  .partner-logo:hover {
+    @apply opacity-100 grayscale-0;
+  }
+
+  .nav-link {
+    @apply text-sm text-muted-foreground relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    @apply text-foreground;
+  }
+
+  .social-icon {
+    @apply w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground;
+    transition: all 0.3s ease;
+  }
+
+  .social-icon:hover {
+    @apply border-primary text-primary bg-primary/10;
+  }
 }
