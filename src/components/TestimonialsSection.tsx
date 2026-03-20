@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
   const [current, setCurrent] = useState(0);
 
   return (
-    <section id="testimonials" className="py-20">
+    <section id="testimonials" className="section-anchor py-20">
       <div className="flex items-end justify-between mb-12">
         <div>
           <div className="section-tag mb-8">Testimonials</div>

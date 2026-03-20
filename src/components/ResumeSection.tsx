@@ -10,7 +10,7 @@ const items = [
 
 const ResumeSection = () => {
   return (
-    <section id="resume" className="py-20">
+    <section id="resume" className="section-anchor py-20">
       <div className="section-tag mb-8">Resume</div>
       <motion.h3
         initial={{ opacity: 0, y: 20 }}

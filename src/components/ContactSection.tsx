@@ -9,7 +9,7 @@ const ContactSection = () => {
   const [selectedBudget, setSelectedBudget] = useState<string | null>(null);
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="section-anchor py-20">
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-12">
         <div className="xl:col-span-5">
           <div className="section-tag mb-8">Contact</div>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center py-20">
+    <section id="about" className="section-anchor min-h-screen flex flex-col justify-start pt-6 pb-20">
       <div className="section-tag mb-8">About</div>
 
       <h3 className="font-heading text-xl text-foreground mb-4">

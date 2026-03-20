@@ -19,7 +19,7 @@ const PricingSection = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="pricing" className="py-20">
+    <section id="pricing" className="section-anchor py-20">
       <div className="section-tag mb-8">Pricing</div>
       <motion.h3
         initial={{ opacity: 0, y: 20 }}

@@ -9,7 +9,7 @@ const projects = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-20">
+    <section id="portfolio" className="section-anchor py-20">
       <div className="section-tag mb-8">Portfolio</div>
       <motion.h3
         initial={{ opacity: 0, y: 20 }}

@@ -3,7 +3,7 @@ import { Linkedin, Github, Twitter, Dribbble } from "lucide-react";
 const Sidebar = () => {
   return (
     <div className="hidden xl:block w-[340px] shrink-0">
-      <div className="sticky top-24 text-center">
+      <div className="sticky top-20 text-center">
         <div className="glass-card p-8">
           <div className="mb-4 mx-auto w-[200px] h-[200px] rounded-2xl overflow-hidden">
             <img src="/images/avatar.webp" alt="ZenG" className="w-full h-full object-cover" />
