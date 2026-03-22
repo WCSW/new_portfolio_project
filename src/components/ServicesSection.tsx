@@ -13,7 +13,7 @@ const ServicesSection = () => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="services" className="section-anchor py-20">
+    <section id="services" className="section-anchor py-14 md:py-16">
       <div className="section-tag mb-8">Services</div>
       <motion.h3
         initial={{ opacity: 0, y: 20 }}

@@ -2,19 +2,19 @@ import { Linkedin, Github, Twitter, Dribbble } from "lucide-react";
 
 const Sidebar = () => {
   return (
-    <div className="hidden xl:block w-[340px] shrink-0">
-      <div className="sticky top-20 text-center">
-        <div className="glass-card p-8">
-          <div className="mb-4 mx-auto w-[200px] h-[200px] rounded-2xl overflow-hidden">
+    <aside className="sidebar-column">
+      <div className="sticky top-28 text-center">
+        <div className="profile-card">
+          <div className="profile-image-shell">
             <img src="/images/avatar.webp" alt="ZenG" className="w-full h-full object-cover" />
           </div>
-          <h3 className="font-heading text-xl font-semibold text-foreground mb-1">ZenG</h3>
-          <p className="text-xs uppercase tracking-[3px] text-primary font-mono mb-4">AI Developer</p>
-          <a href="mailto:themesflat@gmail.com" className="text-sm text-foreground underline underline-offset-4 hover:text-primary transition-colors">
+          <h3 className="font-heading mb-1 text-[2.1rem] font-semibold leading-none text-foreground">ZenG</h3>
+          <p className="mb-5 font-mono text-xs uppercase tracking-[3.2px] text-primary">AI Developer</p>
+          <a href="mailto:themesflat@gmail.com" className="inline-block text-[1.05rem] font-medium text-foreground underline underline-offset-4 hover:text-primary transition-colors">
             themesflat@gmail.com
           </a>
-          <p className="text-xs text-muted-foreground mt-1">Based in San Francisco, CA</p>
-          <div className="flex justify-center gap-3 mt-6">
+          <p className="mt-3 text-sm text-muted-foreground">Based in San Francisco, CA</p>
+          <div className="mt-7 flex justify-center gap-3">
             {[Linkedin, Github, Twitter, Dribbble].map((Icon, i) => (
               <a key={i} href="#" className="social-icon">
                 <Icon size={16} />
@@ -23,7 +23,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

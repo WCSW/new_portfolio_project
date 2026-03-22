@@ -14,7 +14,7 @@ const partners = [
 
 const PartnersSection = () => {
   return (
-    <section id="partners" className="section-anchor py-20">
+    <section id="partners" className="section-anchor py-14 md:py-16">
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 items-center">
         <div className="xl:col-span-5">
           <div className="section-tag mb-8">Partner</div>

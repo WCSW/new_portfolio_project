@@ -4,25 +4,33 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-anchor min-h-screen flex flex-col justify-start pt-6 pb-20">
-      <div className="section-tag mb-8">About</div>
+    <section id="about" className="section-anchor hero-section">
+      <div className="section-tag mb-6">About</div>
 
-      <h3 className="font-heading text-xl text-foreground mb-4">
-        Hello! I'm{" "}
-        <TypeWriter
-          words={["Data Engineer","Machine Learning (ML) Engineer", "AI Developer","Python Developer"]}
-          className="text-primary"
-        />
-      </h3>
+      <div className="hero-intro mb-9">
+        <span className="hero-intro-corner hero-intro-corner-tl" />
+        <span className="hero-intro-corner hero-intro-corner-tr" />
+        <span className="hero-intro-corner hero-intro-corner-bl" />
+        <span className="hero-intro-corner hero-intro-corner-br" />
+        <h3 className="font-heading text-[1.9rem] font-semibold text-foreground md:text-[2.2rem]">
+          Hello! I'm{" "}
+          <TypeWriter
+            words={["AI Developer", "ML Engineer", "Python Developer", "Data Engineer"]}
+            className="text-primary"
+          />
+        </h3>
+      </div>
 
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="font-heading text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+        className="hero-title"
       >
-        Empower Code Intelligence
+        Empower Code
+        <br />
+        Intelligence
       </motion.h1>
 
       <motion.p
@@ -30,14 +38,14 @@ const AboutSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-muted-foreground max-w-2xl mb-12 leading-relaxed"
+        className="hero-copy"
       >
         Hello! I'm ZenG, an AI Developer with 10 years of experience in designing and developing intelligent
         systems. My expertise spans machine learning, natural language processing, computer vision, and
         data analysis. Driven by curiosity, I transform complex data into smart solutions.
       </motion.p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="hero-stats">
         {[
           { end: 10, suffix: "+", label: "Years in AI Development" },
           { end: 500, suffix: "+", label: "Satisfied Clients" },

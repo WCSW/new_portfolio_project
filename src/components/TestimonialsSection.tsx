@@ -19,17 +19,17 @@ const TestimonialsSection = () => {
   const [current, setCurrent] = useState(0);
 
   return (
-    <section id="testimonials" className="section-anchor py-20">
+    <section id="recommendations" className="section-anchor py-14 md:py-16">
       <div className="flex items-end justify-between mb-12">
         <div>
-          <div className="section-tag mb-8">Testimonials</div>
+          <div className="section-tag mb-8">Recommendations</div>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
           >
-            Trusted By Clients
+            Professional Recommendations
           </motion.h3>
         </div>
         <div className="flex gap-3">

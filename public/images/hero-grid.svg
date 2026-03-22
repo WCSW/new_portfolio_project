@@ -1,0 +1,49 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="800" y1="0" x2="800" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#151816"/>
+      <stop offset="1" stop-color="#090A09"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 210) rotate(90) scale(420 760)">
+      <stop stop-color="#34F07D" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34F07D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <rect width="1600" height="1200" fill="url(#glow)"/>
+
+  <g stroke="#2CEA78" stroke-opacity="0.15" stroke-width="1">
+    <path d="M0 90H1600"/>
+    <path d="M0 150H1600"/>
+    <path d="M0 220H1600"/>
+    <path d="M0 300H1600"/>
+    <path d="M0 390H1600"/>
+    <path d="M0 490H1600"/>
+    <path d="M0 600H1600"/>
+    <path d="M0 720H1600"/>
+    <path d="M0 850H1600"/>
+    <path d="M0 990H1600"/>
+    <path d="M0 1140H1600"/>
+  </g>
+
+  <g stroke="#2CEA78" stroke-opacity="0.12" stroke-width="1" filter="url(#soft)">
+    <path d="M800 90L70 1200"/>
+    <path d="M800 90L180 1200"/>
+    <path d="M800 90L290 1200"/>
+    <path d="M800 90L400 1200"/>
+    <path d="M800 90L510 1200"/>
+    <path d="M800 90L620 1200"/>
+    <path d="M800 90L730 1200"/>
+    <path d="M800 90L870 1200"/>
+    <path d="M800 90L980 1200"/>
+    <path d="M800 90L1090 1200"/>
+    <path d="M800 90L1200 1200"/>
+    <path d="M800 90L1310 1200"/>
+    <path d="M800 90L1420 1200"/>
+    <path d="M800 90L1530 1200"/>
+  </g>
+</svg>

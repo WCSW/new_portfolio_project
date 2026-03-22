@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { Moon, SunMedium } from "lucide-react";
+import { useTheme } from "next-themes";
 
-const navItems = ["Demos", "About", "Resume", "Services", "Portfolio", "Pricing", "Contact"];
+const navItems = ["About", "Resume", "Portfolio", "Skills", "Certifications", "Recommendations", "Contact"];
 
 const Navbar = () => {
   const [active, setActive] = useState("About");
+  const { resolvedTheme, setTheme } = useTheme();
+  const isLight = resolvedTheme === "light";
 
   const scrollTo = (id: string) => {
     setActive(id);
@@ -11,18 +15,18 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-3">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <div className="navbar-shell">
         <div className="flex items-center gap-3">
           <div className="nav-avatar">
-            <img src="/images/avatar.webp" alt="ZenG" className="w-11 h-11 rounded-full object-cover" />
+            <img src="/images/avatar.webp" alt="ZenG" className="h-12 w-12 rounded-full object-cover" />
           </div>
           <div>
-            <div className="font-heading font-semibold text-foreground text-sm">ZenG</div>
-            <div className="text-[10px] uppercase tracking-[2px] text-primary font-mono">AI Developer</div>
+            <div className="font-heading text-[1.7rem] font-semibold leading-none text-foreground">ZenG</div>
+            <div className="font-mono text-[10px] uppercase tracking-[2.8px] text-primary">AI Developer</div>
           </div>
         </div>
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <button
               key={item}
@@ -33,9 +37,19 @@ const Navbar = () => {
             </button>
           ))}
         </nav>
-        <button onClick={() => scrollTo("Contact")} className="btn-primary nav-cta">
-          Hire Me
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label={`Switch to ${isLight ? "dark" : "light"} mode`}
+            onClick={() => setTheme(isLight ? "dark" : "light")}
+            className="theme-toggle"
+          >
+            {isLight ? <Moon size={18} /> : <SunMedium size={18} />}
+          </button>
+          <button onClick={() => scrollTo("Contact")} className="btn-primary nav-cta">
+            Hire Me
+          </button>
+        </div>
       </div>
     </header>
   );
