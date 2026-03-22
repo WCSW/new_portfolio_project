@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Moon, SunMedium } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -8,6 +8,41 @@ const Navbar = () => {
   const [active, setActive] = useState("About");
   const { resolvedTheme, setTheme } = useTheme();
   const isLight = resolvedTheme === "light";
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => {
+        const id = item.toLowerCase();
+        const element = document.getElementById(id);
+        return element ? { item, element } : null;
+      })
+      .filter((section): section is { item: string; element: HTMLElement } => section !== null);
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const updateActiveSection = () => {
+      const offset = 160;
+      const scrollPosition = window.scrollY + offset;
+
+      const currentSection =
+        [...sections]
+          .reverse()
+          .find(({ element }) => element.offsetTop <= scrollPosition) ?? sections[0];
+
+      setActive((previous) => (previous === currentSection.item ? previous : currentSection.item));
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
 
   const scrollTo = (id: string) => {
     setActive(id);
